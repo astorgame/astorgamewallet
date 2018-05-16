@@ -1,0 +1,108 @@
+
+
+
+
+@media only screen and (min-width: 321px) {...}
+@media only screen and (min-width: 426px) {...}  
+@media only screen and (min-width: 768px) {...} 
+@media only screen and (min-width: 992px) {...}
+@media only screen and (min-width: 1200px) {...}
+
+
+@media only screen and (min-width: 992px) and (max-width : 1200px){
+	header img {max-width: 200px;}
+	header ul li {margin-right: 20px;}
+	.conf ul li  {margin-right: 0;}
+	.conf ul {top: 110px;}
+	header button {width: 130px;}
+	header .top_menu { padding-top: 70px;}
+
+	.topbcgrd-content span {font-size: 170px;}
+	.topbcgrd-content {padding: 150px 0;}
+
+	.block-items .item-content p {padding-top: 60px;}
+	.block-items .item-content span {font-size: 50px;} 
+
+	footer {padding: 0; text-align: center; padding-top: 40px;}
+	footer button {margin: 1rem 0;}
+
+	.topbcgrd_wallet-content .depaddr input {width: 65%;}}
+@media only screen and (min-width: 768px) and (max-width : 991px) {
+	header img {max-width: 150px;}
+	header ul {float: none; text-align: center;}
+	header ul li {margin-right: 10px;}
+	header button {width: 120px;}
+	header .top_menu { padding-top: 50px;}
+
+	.topbcgrd-content span {font-size: 120px;}
+	.topbcgrd-content {font-size: 36px; padding: 150px 0;}
+	.topbcgrd-content .text-bottom, .topbcgrd-content .text-light {font-size: 18px;}
+
+	.block-items {padding: 80px 0;}
+	.block-items .item1, .block-items .item3 {margin-bottom: 1rem;}
+
+	.block-contact {padding-top: 50px; padding-bottom: 80px;}
+	.block-contact--content {width: 80%;}
+
+	footer {padding: 0; text-align: center; padding-top: 40px;}
+	footer button {margin: 1rem 0;}
+
+	.topbcgrd_wallet-content .depaddr input {width: 55%;}}
+@media only screen and (min-width: 600px) and (max-width : 767px) {...}
+@media only screen and (min-width: 505px) and (max-width : 767px) {...}
+
+@media only screen and (max-width: 1200px) {
+	.topbcgrd_login-wrap .btn-tab {width: 240px;}
+	.topbcgrd_login-img {margin: 0}}
+@media only screen and (max-width: 992px)  {.topbcgrd_login-wrap .btn-tab {width: 180px;} }
+@media only screen and (max-width: 767px)  {
+	.topbcgrd-content span {font-size: 80px;}
+	.topbcgrd-content {font-size: 24px; padding: 150px 0;}
+	.topbcgrd-content .text-bottom, .topbcgrd-content .text-light {font-size: 14px;}
+
+	header ul {padding: 0}
+	header ul li {margin-right: 10px;}
+
+	header .top_menu {padding-top: 0px;} 
+	header img {max-width: 150px;}
+
+	.block-items {padding: 80px 0;}
+	.block-items .item1, .block-items .item3 {margin-bottom: 1rem;}
+	.block-items .item-content {padding: 20px 40px;}
+	.block-items .item-content span {font-size: 30px;}
+	.block-items .item-content p {padding-top: 0px; font-size: 14px;}
+	.block-items .item-content button {width: 135px; height: 35px}
+
+	.block-contact {padding-top: 50px; padding-bottom: 80px;}
+	.block-contact h1 {font-size: 2em;}
+	.block-contact--content {width: 90%;}
+	
+	footer {padding: 0; text-align: center; padding-top: 40px;}
+	footer .tw, footer .fb {padding: 20px; width: 90%; float: none; margin: 0 auto; margin-bottom: 2rem;}
+	footer button {margin: 1rem 0;}
+
+	/*Login*/
+	.topbcgrd_login-wrap {width: 90%; margin-top: 50px;}
+	.topbcgrd_login-content {width: 80%;}
+	.topbcgrd_wallet-content input {float: left;}
+	.topbcgrd_wallet-content .radio-item {padding: 10px 0;}
+	.topbcgrd_wallet-content .depaddr {padding: 40px 0;}
+	.topbcgrd_wallet-content .depaddr input {width: 55%;}
+
+	.list-menu button {width: 135px;}}
+@media only screen and (max-width: 504px)  {
+	.topbcgrd-content {padding: 70px 0;}
+	.topbcgrd-content span {font-size: 60px;}
+	/*Login*/
+	.topbcgrd_login-wrap .btn-tab {width: 150px;}
+	.topbcgrd_login-wrap button {width: 135px;}
+	.topbcgrd_login-wrap button span {font-size: 12px;}
+	.topbcgrd_login-wrap .btn-tab {margin-top: 0.8rem;}
+	.topbcgrd_wallet-content .depaddr input {width: 100%; margin-bottom: 10px;}	}
+@media only screen and (max-width: 425px)  {...}
+@media only screen and (max-width: 376px)  {nav img {left: 30%;} }
+
+/** smartphone height **/
+@media (max-width: 1024px) and (max-device-height: 1440px) {.img-holder {height: 550px;}}
+@media (max-width: 800px)  and (max-device-height: 1366px) {.img-holder {height: 450px;}}
+@media (max-width: 604px)  and (max-device-height: 1024px) {.img-holder {height: 350px;}}

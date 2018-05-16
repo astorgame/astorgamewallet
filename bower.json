@@ -1,0 +1,34 @@
+{
+  "name": "astorgame",
+  "version": "1.0.0",
+  "description": "Plataforma astorgame",
+  "license": "MIT",
+  "homepage": "https://astorgame.com",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "satellizer": "^0.15.5",
+    "angular-material": "^1.1.8",
+    "angular-route": "^1.7.0",
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3",
+    "angular-translate-loader-static-files": "^2.17.0",
+    "ngstorage": "^0.3.11",
+    "angular-ui-router": "^1.0.15",
+    "angular-material-data-table": "^0.10.10",
+    "angular-moment": "^1.2.0",
+    "flag-icon-css": "^3.1.0",
+    "angular-sanitize": "^1.6.9",
+    "angular-qrcode": "^7.2.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-translate": "^2.17.0"
+  }
+}
