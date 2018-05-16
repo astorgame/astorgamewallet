@@ -15,8 +15,8 @@ var app =angular.module('astorgameApp', ['astorgameApp.models',
 ]);
 var appModels = angular.module('astorgameApp.models', []);
 
-app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$translate','$mdDialog' ,'$filter',
-    function ($rootScope,$timeout,$location,$auth,$localStorage,$translate, $mdDialog,$filter ) {
+app.run(['$rootScope', '$timeout', '$location','$state','$auth', '$localStorage','$translate','$mdDialog' ,'$filter',
+    function ($rootScope,$timeout,$location,$state,$auth,$localStorage,$translate, $mdDialog,$filter ) {
 
         $rootScope.userinfo=null;
         
@@ -30,6 +30,7 @@ app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$transl
             $auth.logout().then(function() {
                 $rootScope.userinfo=null;
                 delete $localStorage.user;
+                $state.go('/');
             });
         };
 

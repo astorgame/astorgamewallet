@@ -1,17 +1,10 @@
 'use strict';
-app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $localStorage ) {
-
-
+app.controller('LoginCtrl', function($scope,$rootScope,$location, $state,$q,$auth,$localStorage ) {
 
     $scope.user = null;
     $scope.pass = null;
     $scope.deserr = "";
     $scope.loginFailed=false;
-    $scope.loginServerErrors = {
-        loginFailed: false,
-        loginNoAut: false,
-        serverOffline: false
-    };
 
     $scope.login = function() {
         if ($scope.loginForm.$valid) {
@@ -24,14 +17,15 @@ app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $l
                     $auth.setToken(d.data.data.token);
                     $localStorage.user =  d.data.data.user;
                     $rootScope.getUserinfo();
-                    //$location.path('/');  
-                   // $rootScope.showWallet(); 
-                   $rootScope.actual_view="views/events.html";
-                   $rootScope.getListGames(1);
+                    $state.go('wallet');
+                }else if (d.status==401){
+                    $scope.loginFailed=true;
+                    $scope.deserr = d.data.message;
                 }
-            }).catch(function(err) {
+            }).catch(function(d) {
                 $scope.loginFailed=true;
-                $scope.deserr = err.data.message;
+                $scope.deserr = d.data.message;
+
             });
         }
     };

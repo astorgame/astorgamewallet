@@ -1,0 +1,49 @@
+<section class="topbcgrd_login">
+		<div class="container">
+			<div class="row" ng-include="'views/header.html'"  >
+			</div>
+			<div class="row topbcgrd_login-wrap">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="text-center profile_balance">
+						Available balance = <span>0 Astor</span>
+					</div>
+				</div>
+				<div class="tabs col-lg-12 text-center wrap-inner-s-1" style="display: block;">
+					<div class="down-arrow text-center" style="display: inline-block;">
+						<button class="btn-tab"><span ng-bind-html="'mnu_deposit' | translate"  >Deposit</span></button>
+					</div>
+					<button ui-sref="withdraw" class="two-l btn-tab btn-tab-lt"><span ng-bind-html="'mnu_withdraw' | translate"  ></span></button>
+					<div class="row topbcgrd_wallet-content">
+						<div class="col-md-1 col-lg-1  hidden-xs hidden-sm"> </div>
+						<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10"> 
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 depaddr">
+									<md-select ng-model="wallet_id" ng-change="updateCode(wallet_id)" placeholder="{{ 'field_selwallet' | translate }}"   >
+										<md-option ng-repeat="item in ls_wallets" value="{{item.id}}">{{item.description}} - {{item.available}} </md-option>	
+									</md-select>	
+								</div>
+							</div>
+							<div class="row"> 
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 depaddr">
+									<input type="text" ng-model="selected.address"  name="address"  />
+									<button class="btn-copy"><span>Copy Link</span></button>
+								</div>
+							</div>
+							<div class="row"> 
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<label style="font-size: 14px;">Or Deposit funds by scanning below:  </label>
+									<div id="qr" class="t-center" style="margin-top: 1rem;">
+										<qrcode data="selected.address"  error-correction-level="Q" size="200" color="#fff" background="#000"   ></qrcode>
+									</div>
+								</div>
+							</div>
+						</div>	
+						<div class="col-md-1 col-lg-1  hidden-xs hidden-sm"> </div>
+					   
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+

@@ -1,0 +1,35 @@
+.puntero {
+	cursor: pointer!important;
+}
+.btn-small-1 {
+    margin-top: 5px;
+    height: 35px;
+    width: 135px;
+    float: left;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+.icono-sm{
+	height: 32px;
+	width: 32px;
+}
+
+.paddingY{
+	padding-top: 10px!important;
+	padding-bottom: 10px!important;
+  }
+  .coin-wrapper{
+	height: 48px;
+	/*width: 48px;*/
+  }
+
+  .text-blue{
+	   color: rgb(27, 74, 187)!important;
+  }
+  .text-dark{
+    color: #1e1e1e!important;
+  }
+  .text-dark:hover{
+    color: #fefefe!important;
+  }

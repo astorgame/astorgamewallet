@@ -1,0 +1,79 @@
+<header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="hidden-xs">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top_menu">
+				<ul>
+					<li><a href="javascript:void(0)" ui-sref="/"   class="active puntero"  >Home</a></li>
+					<li><a href="javascript:void(0)" ui-sref="wallet"  class="puntero" >Wallet</a></li>
+					<li><a href="javascript:void(0)" ui-sref="about"  class="puntero" >About us</a></li>
+				</ul>		
+			</div>
+			<div class="col-xs-4 col-sm-3 col-md-4 col-lg-4">
+				<img src="img/logo.png" alt="logo" class="">
+			</div>
+			<div class="col-xs-4 col-sm-5 col-md-4 col-lg-4 top_menu text-right">
+				<div ng-if="!isAuthenticated()"  >
+					<button ui-sref="login"  class="btn-lgn"  ><span ng-bind-html="'login' | translate"   ></span></button>
+					<button ui-sref="register"  ><span ng-bind-html="'joinnow' | translate" ></span></button>
+				</div>	
+				<md-menu  md-position-mode="target-right bottom text-right" ng-if="isAuthenticated()" >
+					<div  class="btn-prof puntero"  ng-mouseenter="openMenu($mdMenu, $event)" >
+						<span><i class="fas fa-user"></i></span>
+						<span ng-bind-html="$root.userinfo.description"  ></span>		
+					</div>
+					<md-menu-content width="4" class="md-menu-content-cerop"  ng-mouseleave="$mdMenu.close()"  aria-label="profile-menu"  >
+						<md-menu-item>
+							<md-button ui-sref="profile"  >
+								<span>  
+									<i class="text-white fas fa-edit" aria-hidden="true"></i>  {{ 'mnu_profile' | translate }}
+								</span>	
+							</md-button>
+						</md-menu-item>
+						<md-menu-divider></md-menu-divider>
+						<md-menu-item>
+							<md-button ui-sref="transactions"  >
+								<span>  
+									<i class="text-white fas fa-exchange-alt" aria-hidden="true"></i>  {{ 'mnu_transacciones' | translate }}
+								</span>	
+							</md-button>
+						</md-menu-item>
+						<md-menu-item>
+								<md-button ui-sref="deposit"  >
+									<span>  
+										<i class="text-white fas fa-redo-alt" aria-hidden="true"></i>  {{ 'mnu_deposit' | translate }}
+									</span>	
+								</md-button>
+						</md-menu-item>
+						<md-menu-item>
+								<md-button ui-sref="withdraw"  >
+									<span>  
+										<i class="text-white fas fa-paper-plane" aria-hidden="true"></i>  {{ 'mnu_withdraw' | translate }}
+									</span>	
+								</md-button>
+						</md-menu-item>
+						<md-menu-divider></md-menu-divider>
+						<md-menu-item>
+							<md-button  ng-click="cerrarSesion()" >
+								<i class="text-white fas fa-sign-out-alt" aria-hidden="true"></i> <span class="md-item-title-sm" >  {{ 'logout' | translate }}  </span>  
+							</md-button>
+						</md-menu-item>
+					</md-menu-content>
+				 </md-menu>	
+
+
+			</div>
+		</div>
+		<nav class="hidden-sm hidden-md hidden-lg">
+			<img src="img/logo.png" alt="logo" class="">
+			<input type="checkbox" id="btn-menu">
+			<label for="btn-menu"><i class="fas fa-bars"></i></label>
+			<div class="list-menu">			
+				<a href="javascript:void(0)"  ui-sref="/" >Home</a>
+				<a href="javascript:void(0)"  ui-sref="wallet" class="active" >Wallet</a>
+				<a href="javascript:void(0)"  ui-sref="about" >About us</a>	
+				<button class="btn-prof">
+					<span><i class="fas fa-user"></i></span>
+					<span ng-bind-html="$root.userinfo.description"  ></span>	
+				</button>										
+			</div>
+		</nav>
+	</header>

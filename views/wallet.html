@@ -1,115 +1,78 @@
-<section class="topbcgrd_login">
+<section class="topbcgrd_login" ng-init="getList()" >
 		<div class="container">
-			<div class="row">
-				<header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div class="hidden-xs">
-						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top_menu">
-							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#" class="active">Wallet</a></li>
-								<li><a href="#">About us</a></li>
-							</ul>		
-						</div>
-						<div class="col-xs-4 col-sm-3 col-md-4 col-lg-4">
-							<img src="img/logo.png" alt="logo" class="">
-						</div>
-						<div class="col-xs-4 col-sm-5 col-md-4 col-lg-4 top_menu">
-							<button class="btn-prof">
-								<span><i class="fas fa-user"></i>-</span>
-								<span>natalo4kka</span>
-							</button>
-							<div class="hidden-sm conf">
-								<ul>
-									<li><a href="#"><span class="icon-pad"><i class="fas fa-edit"></i></span>Edit Profile</a></li>
-									<li><a href="#"><span class="icon-pad"><i class="fas fa-key"></i></span> Change Password</a></li>
-									<li><a href="#"><span class="icon-pad"><i class="far fa-question-circle"></i></span> Support</a></li>
-									<li><a href="#"><span class="icon-pad"><i class="fas fa-sign-out-alt"></i></span> Logout</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<nav class="hidden-sm hidden-md hidden-lg">
-						<img src="img/logo.png" alt="logo" class="">
-
-						<input type="checkbox" id="btn-menu">
-						<label for="btn-menu"><i class="fas fa-bars"></i></label>
-
-						<div class="list-menu">			
-							<a href="#">Home</a>
-							<a href="#" class="active">Wallet</a>
-							<a href="#">About us</a>
-							
-							<button class="btn-prof">
-								<span><i class="fas fa-user"></i>-</span>
-								<span>natalo4kka</span>
-							</button>										
-						</div>
-					</nav>
-				</header>
+			<div class="row" ng-include="'views/header.html'"  >
 			</div>
 			<div class="row topbcgrd_login-wrap">
-				<div class="text-center profile_balance">Available balance = 
-					<span>0 Astor</span>
-				</div>
-
-				<div class="tabs col-lg-12 text-center wrap-inner-s-1" style="display: block;">
-					<div class="down-arrow" style="display: inline-block;">
-						<button class="btn-tab"><span>Deposit</span></button>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<div class="text-left profile_balance">
+						Available balance = <span>0 Astor</span>
 					</div>
-					<button class="two-l btn-tab btn-tab-lt"><span>Withdraw</span></button>
-					
-					<div class="row topbcgrd_wallet-content">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 radio-item">
-								<input type="radio" class="radio" id="radio-btc" name="" value="BTC" checked="">
-								<label for="radio-btc">Bitcoin</label>
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 radio-item">
-								<input type="radio" class="radio" id="radio-eth" name="" value="ETH">
-								<label for="radio-eth">Ethereum</label>
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 radio-item">
-								<input type="radio" class="radio" id="radio-astor" name="" value="Astor">
-								<label for="radio-astor">Astor</label>
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 depaddr">
-							<input type="text" name="">	
-							<button class="btn-copy"><span>Copy Link</span></button>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<label style="font-size: 14px;">Or Deposit funds by scanning below:</label>
-                            <div id="qr" class="t-center" style="margin-top: 1rem;"></div>
-                        </div>
-                    </div>
 				</div>
-
-				<div class="tabs col-lg-12 text-center wrap-inner-s-2" style="display: block;">
-					<button class="one-l btn-tab btn-tab-lt"><span>Deposit</span></button>
-					<div class="down-arrow" style="display: inline-block;">
-						<button class="btn-tab"><span>Withdraw</span></button>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<div class="text-right ">
+						<button ui-sref="deposit"  class="btn-small-1" ><span ng-bind-html="'mnu_deposit' | translate"   ></span></button>
+						<button ui-sref="withdraw"  class="btn-small-1" ><span ng-bind-html="'mnu_withdraw' | translate" ></span></button>	
 					</div>
-					
-					<div class="row topbcgrd_login-content">
-						<div class="col-lg-12 marg">
-							<span class="fl_lf"> Amount of ETH </span>
-						</div>
-						<div class="col-lg-12">
-							<input type="text" name="">
-						</div>
-						<div class="col-lg-12 marg">
-							<span class="fl_lf"> Your ETH Address	</span>
-						</div>
-						<div class="col-lg-12">
-							<input type="text" name="">
-						</div>
-
-						<div class="text-center">
-							<button><span>Withdraw</span></button>	
-						</div>
-                    </div>
 				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"   >
+					<md-table-container>
+						<div class="to-pdf" ng-show="list.length>0 "  >
+							<table md-table ng-model="selected" md-progress="promise" >
+								<thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="getList">
+									<tr md-row>
+										<th width="20%" md-column md-order-by="typecoin_id"><span>{{ 'field_typecoin' | translate }}</span></th>
+										<th width="35%" md-column md-order-by="address"><span>{{ 'field_address' | translate }}</span></th>
+										<th width="15%"  class="text-right" md-column md-order-by="total"><span>{{ 'field_total' | translate }}</span></th>
+										<th width="15%"  class="text-right"   md-column md-order-by="available"><span class="text-right" >{{ 'field_available' | translate }}</span></th>
+									</tr>
+								</thead>
+								<tbody md-body>
+									<tr md-row md-select="item" md-select-id="id"  md-auto-select="options.autoSelect" ng-repeat="item in list | orderBy: query.order ">
+										<td width="20%" class="paddingY"  md-cell>
+											<div class="row">
+												<div class="col-md-12" >	
+													<img class="coin-wrapper"  ng-src="{{item.logo}}" alt="">
+												</div>
+											</div>
+										</td>
+										<td width="40%" md-cell>{{item.address}}</td>
+										<td width="20%" md-cell class="text-right"  >{{item.total}}</td>
+										<td width="20%" md-cell class="text-right"  >{{item.available}}</td>	
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</md-table-container>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="container"  ng-show="ls_typecoins.length>0 " >
+						<div class="row">
+							<div class="col-md-4">
+								<md-menu md-position-mode="target-right bottom" >
+									<md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)">
+										<i class="fas fa-dollar-sign"></i><span class=""> {{ 'field_addtypecoin' | translate }} </span>
+									</md-button>
+									<md-menu-content width="4">
+										<md-menu-item  ng-repeat="item in ls_typecoins"  >
+											<md-button ng-click="add(item.id)" >
+												<img class="icono-sm"  ng-src="{{item.logo}} " />
+												<span>{{item.description}}</span>
+										  </md-button>
+									</md-menu-item>		
+									</md-menu-content>
+								</md-menu>
+							</div>	
+							<div class="col-md-8">
+								<div ng-show="showerror"  >
+									<span class="text-error"> {{ deserr }}  </span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				
 			</div>
 		</div>
 	</section>

@@ -1,0 +1,54 @@
+<section class="topbcgrd_login">
+		<div class="container">
+			<div class="row" ng-include="'views/header.html'"  >
+			</div>
+			<div class="row topbcgrd_login-wrap">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="text-center profile_balance">
+							Available balance = <span>0 Astor</span>
+					</div>
+				</div>
+				<div class="tabs col-lg-12 text-center wrap-inner-s-2" style="display: block;">
+					<button ui-sref="deposit"   class="one-l btn-tab btn-tab-lt"><span ng-bind-html="'mnu_deposit' | translate"  ></spa></button>
+					<div class="down-arrow" style="display: inline-block;">
+						<button class="btn-tab"><span ng-bind-html="'mnu_withdraw' | translate" ></span></button>
+					</div>
+					<div class="row topbcgrd_login-content">
+						<div class="col-md-3 col-lg-3  hidden-xs hidden-sm"> </div>
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
+							<div class="row">
+								<span class="fl_lf"> Your Wallet </span>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 "> 
+									<md-select ng-model="retiro.wallet" ng-change="updateCode(retiro.wallet)" placeholder="{{ 'field_selwallet' | translate }}"   >
+										<md-option ng-repeat="item in ls_wallets" value="{{item.id}}">{{item.description}} - {{item.available}} </md-option>	
+									</md-select>	
+							   </div>
+							</div>
+							<div class="row marg">
+								<span class="fl_lf"> Amount of {{selected.description}} </span>
+							</div>
+							<div class="row">
+								<input type="text" name='monto' ng-model="retiro.monto" >
+							</div>
+							<div class="row marg">
+								<span class="fl_lf"> Your {{selected.description}} Address	</span>
+							</div>
+							<div class="row">
+								<input type="text" name='sendadress' ng-model="retiro.sendadress" >
+							</div>
+							<div class="row ">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+								   <button  ng-click="sendCoin()"  ><span ng-bind-html="'mnu_withdraw' | translate" ></span></button>	
+								</div>		
+							</div>
+					  </div>	
+					  <div class="col-md-3 col-lg-3  hidden-xs hidden-sm"> </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+

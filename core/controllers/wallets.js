@@ -1,17 +1,16 @@
 'use strict';
-app.controller('WalletsCtrl', function($scope, $rootScope, $location, $stateParams, $timeout, $q , $auth, $mdDialog, WalletsService, TypecoinsService  ) {
-
+app.controller('WalletCtrl', function($scope, $rootScope, $location,$state, $stateParams, $timeout, $q , $auth, $mdDialog, WalletsService, TypecoinsService  ) {
+    if( !$auth.isAuthenticated() ){
+        $state.go('login');
+    }
+    $rootScope.getUserinfo();
     $scope.selected = [];
     $scope.showOptions = false;
     $scope.recordscount = 0;
     $scope.deserr = "";
     $scope.showerror=false;
     $scope.ls_typecoins={};
-
-    $scope.retiro={};
     
-    
-
     $scope.options = {
         rowSelection: true,
         multiSelect: true,
@@ -31,7 +30,6 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     };
 
     $scope.getListSWallets = function(){
-        console.log("ssssssssssssss :"+ $rootScope.activewll)
         var sdata = {
             sendadress: "",
             monto: 0,
@@ -92,6 +90,9 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     };
 
     $scope.add = function(typeid){
+        if( !$auth.isAuthenticated() ){
+            $state.go('login');
+        }
         $scope.showerror=false;
         var datasend = {
             active: true,
@@ -100,7 +101,7 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
         $scope.newFailed=false;
         WalletsService.store(datasend).then(function(response){
             var d = response.data;
-            if( d.sucess){
+            if( d.success){
                 $scope.getList();
                 $rootScope.showAlert (d.type,d.message);
             }else{
@@ -109,7 +110,6 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
         }).catch(function(err){
             $scope.showerror=true;
             $scope.deserr = err.data.message;
-            
         });
     };
 
@@ -127,25 +127,6 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
             $scope.deserr = err.data.message;
         });
     };
-
-    $scope.sendCoin = function() {
-        $scope.showerror=false;
-        WalletsService.sendcs($scope.retiro).then(function(response){
-            var d = response.data;
-            if( d.sucess){
-                $rootScope.showAlert (d.type,d.message);
-            }else{
-                $rootScope.showAlert (d.type,d.message);
-            }
-        }).catch(function(err){
-            $scope.showerror=true;
-            $scope.deserr = err.data.message;
-        });
-    };
-    
-
-
-
 
 
 })

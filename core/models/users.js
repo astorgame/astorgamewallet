@@ -2,13 +2,7 @@ appModels.factory('UsersService', function($http, CONFIG) {
     var urlx = CONFIG.URL_WS;
     var entidad="users";   
 	return {
-        /*list: function(query_) {
-             var config_ = {
-                  params: query_
-               };
-             return $http.get(urlx + entidad , config_ );
-        },*/
-        getUser: function(query_) {
+        get: function(query_) {
             return $http.get(urlx + entidad+ '/' + query_ );
         },
         store: function(query_) {

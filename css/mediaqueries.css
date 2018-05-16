@@ -82,8 +82,7 @@
 	footer button {margin: 1rem 0;}
 
 	/*Login*/
-	.topbcgrd_login-wrap {width: 90%; margin-top: 50px;}
-	.topbcgrd_login-content {width: 80%;}
+	.topbcgrd_login-wrap { margin-top: 50px;}
 	.topbcgrd_wallet-content input {float: left;}
 	.topbcgrd_wallet-content .radio-item {padding: 10px 0;}
 	.topbcgrd_wallet-content .depaddr {padding: 40px 0;}

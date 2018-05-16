@@ -1,6 +1,9 @@
 'use strict';
-app.controller('TransactionsCtrl', function($scope, $rootScope, $location, $stateParams, $timeout, $q , $auth, $mdDialog, TransactionsService ) {
-    
+app.controller('TransactionCtrl', function($scope, $rootScope, $location, $state,$stateParams, $timeout, $q , $auth, $mdDialog, TransactionsService ) {
+    if( !$auth.isAuthenticated() ){
+        $state.go('login');
+    }
+    $rootScope.getUserinfo();
     $scope.selected = [];
     $scope.showOptions = false;
     $scope.recordscount = 0;
