@@ -1,0 +1,90 @@
+<section class="topbcgrd_login">
+  <div class="container"> 
+     <div class="row" ng-include="'views/header.html'"  >
+	 </div>
+	 <div class="row topbcgrd_login-content"  >
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+
+		<md-tabs md-dynamic-height md-border-bottom>
+			<md-tab label="{{ 'profilee' | translate }}">
+				<form name="profileSettingsForm">
+					<div class="container">
+							<div class="row">
+								<div class="col-md-12"> <br/>  </div>
+							</div>		
+							<div class="row">
+								<div class="col-md-3"></div>	
+								<div class="col-md-6">
+									<md-input-container class="md-block">
+										<label>{{ 'field_name' | translate }}</label>
+										<input required type="text" name="description" ng-model="$root.userinfo.description" maxlength="100" />
+										<div ng-messages="profileSettingsForm.description.$error" role="alert"   >
+											<div ng-message-exp="['required']">
+												{{ 'requiredField' | translate }}
+											</div>
+										</div>
+									</md-input-container>
+									<md-input-container class="md-block">
+										<label class="text-white" >{{ 'email' | translate }}</label>
+										<input class="text-white" type="email" name="email" ng-model="$root.userinfo.email" ng-disabled="true"/>
+									</md-input-container>
+								</div>
+								<div class="col-md-3"></div>	
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+								<button  ng-click="update()"  class="text-dark" ><span  ng-bind-html="'save' | translate" class="text-dark" ></span></button>	
+							</div>	
+						</div>	
+						<div class="row">
+							<div class="col-md-12"> <br/>  </div>
+						</div>	
+					</div>	
+				</form>
+			</md-tab>
+			<md-tab label="{{ 'security' | translate }}">
+					<form name="securityForm">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12"> <br/>  </div>
+							</div>	
+							<div class="row">
+								<div class="col-md-3"></div>	
+								<div class="col-md-6">
+									<md-input-container class="md-block">
+										<label ng-bind-html =" 'currentPassword' | translate"   ></label>
+										<input required type="password" name='current' ng-model="security.current" maxlength="50"  />
+										<div ng-messages="securityForm.current.$error" role="alert"   >
+											<div ng-message-exp="['required', 'maxlength']" ng-bind-html="'login_err_pass_1' | translate "   >
+											</div>
+										</div>
+									</md-input-container>
+									<md-input-container class="md-block">
+										<label ng-bind-html =" 'newPassword' | translate"   ></label>
+										<input required type="password" name='new' ng-model="security.new" maxlength="50"  />
+										<div ng-messages="securityForm.new.$error" role="alert">
+											<div ng-message-exp="['required', 'maxlength']"  ng-bind-html="'login_err_pass_1' | translate "   >
+											</div>
+										</div>
+									</md-input-container>
+								</div>
+								<div class="col-md-3"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+									<button class="text-dark"  ><span class="text-dark" >{{ 'save' | translate }}</span></button>	
+								</div>	
+							</div>	
+							<div class="row">
+								<div class="col-md-12"> <br/>  </div>
+							</div>	
+
+						</div>			
+				</form>
+			</md-tab>
+		</md-tabs>
+
+	   </div>
+     </div>	
+   </div>	
+</section>

@@ -1,38 +1,6 @@
 ﻿<section class="topbcgrd">
 	<div class="container">
-		<div class="row">
-			<header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="hidden-xs">
-					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top_menu">
-						<ul>
-							<li><a href="javascript:void(0)" ui-sref="/">Home</a></li>
-							<li><a href="javascript:void(0)" ui-sref="wallet" >Wallet</a></li>
-							<li><a href="javascript:void(0)" ui-sref="about" >About us</a></li>
-						</ul>		
-					</div>
-					<div class="col-xs-4 col-sm-3 col-md-4 col-lg-4">
-						<img src="img/logo.png" alt="logo" class="">
-					</div>
-					<div class="col-xs-4 col-sm-5 col-md-4 col-lg-4 top_menu">
-						<button ui-sref="login"  class="btn-lgn"  ><span>Login</span></button>
-						<button ui-sref="register"  ><span>Join Now</span></button>
-					</div>
-				</div>
-				<nav class="hidden-sm hidden-md hidden-lg">
-					<img src="img/logo.png" alt="logo" class="">
-
-					<input type="checkbox" id="btn-menu">
-					<label for="btn-menu"><i class="fas fa-bars"></i></label>
-
-					<div class="list-menu">			
-						<a href="javascript:void(0)"  ui-sref="/" >Home</a>
-						<a href="javascript:void(0)"  ui-sref="wallet" >Wallet</a>
-						<a href="javascript:void(0)"  ui-sref="about" >About us</a>				
-						<button  ui-sref="login" class="btn-lgn" ><span>Login</span></button>
-						<button  ui-sref="register" ><span>Join Now</span></button>
-					</div>
-				</nav>
-			</header>
+		<div class="row"  ng-include="'views/header.html'" >
 		</div>
 		<div class="row topbcgrd-content">
 			<div class="container">
@@ -64,7 +32,7 @@
 						<div class="item-content">
 							<span>Betting</span>
 							<p>Multi platform: sports betting, live betting, casino, poker, virtual games</p>
-							<button><span>Enter<i class="fas fa-arrow-right icon_size"></i></span></button>
+							<button onclick="window.location.href='https://astorbets.com/' " ><span>Enter<i class="fas fa-arrow-right icon_size"></i></span></button>
 						</div>
 					</div>
 				</a>
