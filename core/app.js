@@ -17,9 +17,19 @@ var appModels = angular.module('astorgameApp.models', []);
 
 app.run(['$rootScope', '$timeout', '$location','$state','$auth', '$localStorage','$translate','$mdDialog' ,'$filter',
     function ($rootScope,$timeout,$location,$state,$auth,$localStorage,$translate, $mdDialog,$filter ) {
-
         $rootScope.userinfo=null;
-        
+        $rootScope.$on('$stateChangeStart',
+            function (event, toState) {
+                 var requiredLogin = false;
+                if (toState.data && toState.data.requiredLogin){
+                    requiredLogin = true;
+                }
+                if (requiredLogin && !$auth.isAuthenticated()) {
+                    event.preventDefault();
+                    $state.go('login');
+                }
+            }
+        );
         $rootScope.isAuthenticated = function() {
             return $auth.isAuthenticated();
         };
@@ -52,6 +62,28 @@ app.run(['$rootScope', '$timeout', '$location','$state','$auth', '$localStorage'
                 .ok($filter('translate')('ok'))
             );
         };
+
+        $rootScope.authenticate = function(provider) {
+            $auth.authenticate(provider).then(function(d) {
+                if (d.status==200){
+                    $rootScope.showAlert ("Success", d.data.message);
+                    //$auth.setToken(d.data.data.token);
+                    //$localStorage.user =  d.data.data.user;
+                   // $rootScope.getUserinfo();
+                    //$state.go('wallet');
+                }else{
+                    $rootScope.showAlert ("Error", d.data.message);
+                }
+            }).catch(function(error) {
+                if(error.message) {
+                 //   $rootScope.showAlert ("Error", error.message);
+                }else if(error.data) {
+                  //  $rootScope.showAlert (error.status, error.data.message);
+                }else{
+                    //$rootScope.showAlert ("Error", error);
+                }
+            });
+          };
 
     }
 ]);

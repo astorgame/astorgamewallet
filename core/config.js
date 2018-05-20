@@ -6,6 +6,16 @@ app.config(['$authProvider','CONFIG',function($authProvider,CONFIG) {
         $authProvider.unlinkUrl = 'auth/invalidate';
         $authProvider.tokenName = 'token';
         $authProvider.storageType = 'localStorage';
+
+        $authProvider.facebook({
+            name: 'facebook',
+            clientId: CONFIG.APP_FB_ID,
+            display: 'page',
+            redirectUri: CONFIG.URL_FB,
+        });
+        $authProvider.twitter({
+            url: '/auth/twitter'
+        });
    }    
 ]);
 app.config(['$httpProvider','CONFIG',function($httpProvider,CONFIG){

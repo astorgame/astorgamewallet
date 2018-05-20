@@ -86,7 +86,7 @@ header .top_menu {padding-top: 90px;}
 header ul {float: left;}
 header ul li {
   display: inline-block; 
-  margin-right: 40px; 
+  margin-right: 25px; 
   padding-top: 5px;
   margin-bottom: 10px;}
 header ul li a{display: inline-block; text-decoration: none;}

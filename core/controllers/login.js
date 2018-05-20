@@ -25,7 +25,6 @@ app.controller('LoginCtrl', function($scope,$rootScope,$location, $state,$q,$aut
             }).catch(function(d) {
                 $scope.loginFailed=true;
                 $scope.deserr = d.data.message;
-
             });
         }
     };

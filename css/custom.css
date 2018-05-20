@@ -33,3 +33,25 @@
   .text-dark:hover{
     color: #fefefe!important;
   }
+
+  .link-button {
+    width: 135px!important;
+    background-color: #5BFF3B!important;
+    border: 1px solid #5BFF3B!important;
+    color: #1e1e1e!important;
+    -webkit-transition-duration: 0.4s!important;
+    transition-duration: 0.4s!important;
+    padding: 8px;
+}
+
+.link-button span {
+    width: 135px!important;
+    font-family: "ProximaNova-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #1e1e1e;
+}
+
+.link-button:visited, .link-button:hover, .link-button:active, .link-button:focus {background-color: transparent!important;}
+.link-button:visited span, .link-button:hover span, .link-button:active span, .link-button:focus span {color: #1e1e1e!important; }
